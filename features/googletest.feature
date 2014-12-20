@@ -3,6 +3,11 @@ Feature: google search
     As a user
     I want to perform a search
 
+    Scenario: I see the google buttons
+        Given I am on the google homepage
+        Then I should see "feeling lucky"
+        And I should see "Google Search"
+
     @javascript
     Scenario: I get search results
         Given I am on the google homepage
