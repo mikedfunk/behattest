@@ -5,3 +5,5 @@ default:
       sessions:
         default:
           goutte: ~
+        javascript:
+          selenium2: ~
