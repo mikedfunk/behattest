@@ -13,6 +13,7 @@ Some example acceptance tests using Behat, Mink, Goutte, and Selenium 2.
 1. `composer require behat/behat behat/mink behat/mink-extension behat/mink-selenium2-driver`
 2. add [behat.yml mink boilerplate](https://github.com/mikedfunk/behattest/blob/master/behat.yml) to root or mink will not work
 3. `vendor/bin/behat --init`
+4. edit `features/bootstrap/FeatureContext.php`. Ensure the class `extends \Behat\MinkExtension\Context\MinkContext`.
 4. create a feature `my-feature-name.feature` in `features/` using [gherkin syntax](http://docs.behat.org/en/latest/guides/1.gherkin.html)
 5. add the feature functions to `features/bootstrap/FeatureContext.php` with `behat --append-snippets --dry-run`
 6. use the [mink api](http://mink.behat.org/en/latest/guides/session.html) to complete each test
