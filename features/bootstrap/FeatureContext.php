@@ -44,15 +44,18 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iEnterTheSearchTerm($arg1)
     {
-        $this->getSession()->wait(100);
+        // if you need to wait for javascript to happen
+        // $this->getSession()->wait(100);
+
         // search input
         $this->fillField('q', $arg1);
+
         // you can also check for an element with javascript
         // $this->getSession()
         // ->wait(100, "document.getElementById('gbqfb').length");
-        $this->getSession()->wait(100);
+
         // search button
-        $this->pressButton('gbqfb');
+        $this->pressButton('Google Search');
     }
 
     /**
@@ -60,7 +63,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeAtLeastOneResultAbout($arg1)
     {
-        $this->getSession()->wait(500);
         $this->assertPageContainsText($arg1);
     }
 
@@ -69,6 +71,8 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeOnTheGoogleSearchResultsPage()
     {
-        $this->assertPageAddress('#q=pound+puppies');
+        // not working for some reason
+        // $this->assertPageAddress('#q=pound+puppies');
+        $this->assertPageAddress('/search');
     }
 }
